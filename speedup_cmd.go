@@ -14,9 +14,10 @@ import (
 
 func speedupCmd() *cobra.Command {
 	cmd := &cobra.Command{
-		Use:  "speedup FILE TIMES",
-		Long: "Speedup the section ",
-		Args: cobra.ExactArgs(2),
+		Use:     "speedup FILE TIMES",
+		Short:   "Speedup one or more sections in the asciicast file",
+		Example: "asciiedit speedup commit.cast 2 -r 30:81 -r 9:17 -r 99:116 > spedup.cast",
+		Args:    cobra.ExactArgs(2),
 		RunE: func(cmd *cobra.Command, args []string) error {
 			file := args[0]
 			times, err := strconv.ParseFloat(args[1], 64)
